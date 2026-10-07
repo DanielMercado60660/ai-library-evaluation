@@ -658,9 +658,9 @@ async def search_books(query: str) -> dict:
 
 - [MCP Specification](https://modelcontextprotocol.io/)
 - [Google ADK Documentation](https://google.github.io/adk-docs/)
-- [A2A Protocol](docs/architecture/A2A_PROTOCOL.md)
-- [ADR Index](docs/architecture/adr/INDEX.md)
-- [v2.1 Execution Plan](docs/status/V2_1_EXECUTION_PLAN.md)
+- [A2A Protocol](A2A_PROTOCOL.md)
+- [ADR Index](adr/INDEX.md)
+- [v2.1 Execution Plan](../status/V2_1_EXECUTION_PLAN.md)
 
 ---
 

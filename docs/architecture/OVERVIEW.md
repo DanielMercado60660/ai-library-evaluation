@@ -160,7 +160,7 @@ Infrastructure for testing agent behavior:
 - **Model Swapper**: Run same scenarios with different LLMs
 - **Metrics Collector**: Decision logging, performance tracking
 
-See: [EVALUATION.md](./EVALUATION.md)
+See: [EVALUATION.md](../archive/archive/2025-architecture/EVALUATION.md)
 
 ## Key Design Principles
 
@@ -178,7 +178,7 @@ Patron data never crosses library boundaries. The A2A protocol enforces this, an
 
 ### 4. Model Agnosticism
 
-The platform abstracts LLM providers behind a common interface. Today we test with Gemini; tomorrow we can swap in GPT-4, Claude, or local models and compare behaviors. See: [MODEL_ABSTRACTION.md](./MODEL_ABSTRACTION.md)
+The platform abstracts LLM providers behind a common interface. Today we test with Gemini; tomorrow we can swap in GPT-4, Claude, or local models and compare behaviors. See: [MODEL_ABSTRACTION.md](../archive/archive/2025-architecture/MODEL_ABSTRACTION.md)
 
 ### 5. Observable Everything
 
@@ -200,7 +200,7 @@ Every agent decision is logged with full context: input, output, tool calls, lat
 
 1. **Understand the Domain**: Read this document and [DATA_MODEL.md](./DATA_MODEL.md)
 2. **Set Up Services**: Follow the README in the project root
-3. **Run Basic Scenarios**: See [EVALUATION.md](./EVALUATION.md)
+3. **Run Basic Scenarios**: See [EVALUATION.md](../archive/archive/2025-architecture/EVALUATION.md)
 4. **Explore A2A**: Set up Mastodon Institute and test cross-library flows
 5. **Write New Scenarios**: Extend the evaluation suite
 
@@ -230,5 +230,5 @@ ai-library/
 - [A2A_PROTOCOL.md](./A2A_PROTOCOL.md) — Inter-library communication
 - [DATA_MODEL.md](./DATA_MODEL.md) — Entity relationships and schemas
 - [SECURITY.md](./SECURITY.md) — Data isolation and privacy rules
-- [EVALUATION.md](./EVALUATION.md) — Testing framework and scenarios
-- [MODEL_ABSTRACTION.md](./MODEL_ABSTRACTION.md) — LLM provider interface
+- [EVALUATION.md](../archive/archive/2025-architecture/EVALUATION.md) — Testing framework and scenarios
+- [MODEL_ABSTRACTION.md](../archive/archive/2025-architecture/MODEL_ABSTRACTION.md) — LLM provider interface
