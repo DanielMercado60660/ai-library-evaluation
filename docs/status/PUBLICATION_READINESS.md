@@ -8,7 +8,7 @@ production certification or live model benchmark.
 | Check | Result |
 |---|---|
 | Locked uv workspace sync | Passed with `--frozen --all-packages` |
-| Python regression suite | 952 passed, 5 skipped; portable-path regression passed separately; 6 existing SQLAlchemy warnings |
+| Python regression suite | 953 passed, 5 skipped; 6 existing SQLAlchemy warnings |
 | Angular production build | Passed; existing bundle/CommonJS warnings |
 | Frontend unit tests | 32 passed in ChromeHeadless |
 | Mocked browser suite | 30 passed in Chromium |
@@ -16,7 +16,7 @@ production certification or live model benchmark.
 | Deterministic smoke benchmark | 12 passed; report, JUnit, trace, compliance output generated |
 | Full deterministic scenario run with ADK adapter | 241 passed; trace, compliance and forensic artifacts generated |
 | Demo Compose configuration | Validated with `docker compose ... config --quiet` |
-| Secrets audit | Public source snapshot passed Gitleaks with zero findings; new Git history scanned before upload |
+| Secrets audit | Public source snapshot and all reachable publication commits passed Gitleaks with zero findings |
 
 The browser suite now uses development API URLs and one worker with its
 lightweight static preview server. A default `env.js` avoids a missing runtime
