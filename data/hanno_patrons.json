@@ -1,0 +1,102 @@
+[
+  {
+    "id": "patron-001",
+    "barcode": "HAN-P-001",
+    "name": "Trunsworth Greyvale",
+    "email": "t.greyvale@pachydon.edu",
+    "phone": "555-0101",
+    "category": "adult",
+    "checkout_limit": 10,
+    "hold_limit": 10
+  },
+  {
+    "id": "patron-002",
+    "barcode": "HAN-P-002",
+    "name": "Ivana Pachydon",
+    "email": "i.pachydon@archive.hml",
+    "phone": "555-0102",
+    "category": "researcher",
+    "checkout_limit": 15,
+    "hold_limit": 15
+  },
+  {
+    "id": "patron-003",
+    "barcode": "HAN-P-003",
+    "name": "Marcus Tuskwell",
+    "email": "m.tuskwell@greyhall.edu",
+    "phone": "555-0103",
+    "category": "staff",
+    "checkout_limit": 25,
+    "hold_limit": 25
+  },
+  {
+    "id": "patron-004",
+    "barcode": "HAN-P-004",
+    "name": "Elara Mammontine",
+    "email": "e.mammontine@tusklands.net",
+    "phone": "555-0104",
+    "category": "adult",
+    "checkout_limit": 10,
+    "hold_limit": 10
+  },
+  {
+    "id": "patron-005",
+    "barcode": "HAN-P-005",
+    "name": "Young Probyn Ivoreth",
+    "email": "p.ivoreth@youth.pachydon.edu",
+    "phone": null,
+    "category": "youth",
+    "checkout_limit": 5,
+    "hold_limit": 5
+  },
+  {
+    "id": "patron-006",
+    "barcode": "HAN-P-006",
+    "name": "Dr. Helena Caladent",
+    "email": "h.caladent@pachydon-institute.edu",
+    "phone": "555-0106",
+    "category": "researcher",
+    "checkout_limit": 15,
+    "hold_limit": 15
+  },
+  {
+    "id": "patron-007",
+    "barcode": "HAN-P-007",
+    "name": "Greyson Trunkford",
+    "email": "g.trunkford@mammora-trading.com",
+    "phone": "555-0107",
+    "category": "adult",
+    "checkout_limit": 10,
+    "hold_limit": 10
+  },
+  {
+    "id": "patron-008",
+    "barcode": "HAN-P-008",
+    "name": "Keeper Tuskmere",
+    "email": "keeper.tuskmere@archive.hml",
+    "phone": "555-0108",
+    "category": "staff",
+    "checkout_limit": 25,
+    "hold_limit": 25
+  },
+  {
+    "id": "patron-009",
+    "barcode": "HAN-P-009",
+    "name": "Lillian Stomper",
+    "email": "l.stomper@greyhall.edu",
+    "phone": "555-0109",
+    "category": "adult",
+    "checkout_limit": 10,
+    "hold_limit": 10
+  },
+  {
+    "id": "patron-010",
+    "barcode": "HAN-P-010",
+    "name": "Young Mira Elaphine",
+    "email": "m.elaphine@youth.pachydon.edu",
+    "phone": null,
+    "category": "youth",
+    "checkout_limit": 5,
+    "hold_limit": 5
+  }
+]

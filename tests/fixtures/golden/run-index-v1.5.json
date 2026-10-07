@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.5",
+  "runs": [
+    {
+      "run_id": "golden-run-001",
+      "suite": "smoke",
+      "status": "passed",
+      "model_name": "gemini-3.0-flash",
+      "model_family": "gemini",
+      "started_at": "2026-02-09T00:00:00Z",
+      "completed_at": "2026-02-09T00:01:00Z",
+      "artifact_dir": "artifacts/runs/golden-run-001",
+      "report_path": null,
+      "trace_path": null,
+      "artifact_paths": [],
+      "error_message": null,
+      "scenario_ids": [
+        "tier1_author_search"
+      ],
+      "trigger_source": "assistant_card",
+      "actor_patron_id": "patron-003"
+    }
+  ]
+}

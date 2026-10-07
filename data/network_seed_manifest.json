@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.4",
+  "seed_mode": "federated",
+  "hub": {
+    "code": "hanno-memorial",
+    "name": "Hanno Memorial Library",
+    "sources": [
+      {
+        "file": "hanno_memorial_library_catalog.json",
+        "key": "books",
+        "count": 100
+      },
+      {
+        "file": "batch_01_childrens_fables.json",
+        "key": "books",
+        "count": 50
+      }
+    ],
+    "total_books": 150
+  },
+  "spokes": [
+    {
+      "code": "mastodon-institute",
+      "name": "Mastodon Institute Library",
+      "sources": [
+        {
+          "file": "batch_07_extended_histories.json",
+          "key": "books",
+          "count": 75
+        },
+        {
+          "file": "batch_03_technical_manuals.json",
+          "key": "books",
+          "count": 5
+        }
+      ],
+      "total_books": 80,
+      "specializations": [
+        "paleontology",
+        "ancient-history",
+        "geology"
+      ]
+    },
+    {
+      "code": "mammoth-valley",
+      "name": "Mammoth Valley Public Library",
+      "sources": [
+        {
+          "file": "batch_06_extended_tragedies.json",
+          "key": "books",
+          "count": 75
+        },
+        {
+          "file": "batch_10_genre_fiction.json",
+          "key": "books",
+          "count": 15
+        },
+        {
+          "file": "batch_08_extended_modern.json",
+          "key": "books",
+          "count": 75
+        }
+      ],
+      "total_books": 165,
+      "specializations": [
+        "local-history",
+        "genealogy",
+        "fiction"
+      ]
+    },
+    {
+      "code": "ivory-university",
+      "name": "Ivory University Research Library",
+      "sources": [
+        {
+          "file": "batch_04_philosophy_ethics.json",
+          "key": "books",
+          "count": 75
+        },
+        {
+          "file": "batch_09_extended_technical.json",
+          "key": "books",
+          "count": 15
+        }
+      ],
+      "total_books": 90,
+      "specializations": [
+        "science",
+        "technology",
+        "mathematics",
+        "philosophy"
+      ]
+    },
+    {
+      "code": "tusk-conservatory",
+      "name": "Tusk Conservatory Archives",
+      "sources": [
+        {
+          "file": "batch_02_poetry_verse.json",
+          "key": "books",
+          "count": 75
+        },
+        {
+          "file": "batch_05_translated_works.json",
+          "key": "books",
+          "count": 75
+        }
+      ],
+      "total_books": 150,
+      "specializations": [
+        "music",
+        "performing-arts",
+        "rare-manuscripts"
+      ]
+    }
+  ],
+  "total_network_books": 635,
+  "endpoints": {
+    "hanno-memorial": {
+      "port": 8001,
+      "docker_host": "catalog"
+    },
+    "mastodon-institute": {
+      "port": 8011,
+      "docker_host": "catalog-mastodon"
+    },
+    "mammoth-valley": {
+      "port": 8012,
+      "docker_host": "catalog-mammoth"
+    },
+    "ivory-university": {
+      "port": 8013,
+      "docker_host": "catalog-ivory"
+    },
+    "tusk-conservatory": {
+      "port": 8014,
+      "docker_host": "catalog-tusk"
+    }
+  },
+  "batch_coverage": {
+    "hanno_memorial_library_catalog.json": "hanno-memorial",
+    "batch_01_childrens_fables.json": "hanno-memorial",
+    "batch_02_poetry_verse.json": "tusk-conservatory",
+    "batch_03_technical_manuals.json": "mastodon-institute",
+    "batch_04_philosophy_ethics.json": "ivory-university",
+    "batch_05_translated_works.json": "tusk-conservatory",
+    "batch_06_extended_tragedies.json": "mammoth-valley",
+    "batch_07_extended_histories.json": "mastodon-institute",
+    "batch_08_extended_modern.json": "mammoth-valley",
+    "batch_09_extended_technical.json": "ivory-university",
+    "batch_10_genre_fiction.json": "mammoth-valley"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "manifest_version": "1.4",
+  "suite": "golden_test",
+  "generated_at": "2026-02-09T00:00:00Z",
+  "scenarios": [
+    {
+      "id": "golden_tier1",
+      "nodeid_pattern": "test_golden_tier1",
+      "tier": 1,
+      "expected_steps": 1,
+      "policy_checks": 1,
+      "tool_calls_total": 1,
+      "taxonomy_hint": "tool_misuse"
+    }
+  ]
+}

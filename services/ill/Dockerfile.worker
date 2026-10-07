@@ -1,0 +1,21 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Install uv
+RUN pip install uv
+
+# Copy workspace files
+COPY pyproject.toml ./
+COPY shared/ ./shared/
+COPY services/ill/ ./services/ill/
+
+# Install dependencies (including Celery and Redis)
+RUN uv sync --package ill --no-dev
+
+# Copy seed data
+COPY data/ ./data/
+COPY scripts/ ./scripts/
+
+# Run Celery worker
+CMD ["uv", "run", "--package", "ill", "celery", "-A", "ill.celery_app", "worker", "--loglevel=info", "--concurrency=2"]

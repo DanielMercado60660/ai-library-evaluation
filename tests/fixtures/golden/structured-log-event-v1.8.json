@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-02-09T12:00:00Z",
+  "level": "INFO",
+  "logger": "shared.http_client",
+  "message": "Calling catalog service: GET /books",
+  "correlation_id": "abc123-def456",
+  "run_id": "run-golden-001",
+  "service": "catalog",
+  "extra": {"method": "GET", "endpoint": "/books"}
+}

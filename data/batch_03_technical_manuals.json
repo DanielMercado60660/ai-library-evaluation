@@ -1,0 +1,87 @@
+{
+  "batch_metadata": {
+    "batch_number": 3,
+    "book_range": "226-275",
+    "stratum": 4,
+    "stratum_name": "Technical & Nonfiction",
+    "description": "Advanced procedural documentation, systems theory, and archival preservation manuals.",
+    "hallucination_risk": "High"
+  },
+  "books": [
+    {
+      "id": "book-226",
+      "title": "Advanced Protocols for Inter-Library Exchange",
+      "author": "The Ivory Desk Collective",
+      "author_dates": "est. 1845",
+      "isbn": "978-0-GHLS-0226",
+      "genres": ["technical", "manual", "ILL"],
+      "stratum": 4,
+      "summary": "A technical guide detailing the handshaking procedures between the Hanno Memorial and satellite branches. It outlines the priority queuing system for high-demand vellum transfers across the network.",
+      "publication_year": 1992,
+      "publisher": "The Archive Bindery",
+      "page_count": 342,
+      "related_works": ["book-081", "book-082"],
+      "notes": "Standard reference for the ILL Service implementation."
+    },
+    {
+      "id": "book-227",
+      "title": "The Chemistry of Ivory Preservation",
+      "author": "Dr. T. Tuskerman",
+      "author_dates": "1910-1988",
+      "isbn": "978-0-GHLS-0227",
+      "genres": ["technical", "science", "preservation"],
+      "stratum": 4,
+      "summary": "A manual on the chemical stabilization of carved ivory bindings. It focuses on humidity control and the prevention of micro-cracking in the unique atmospheric conditions of the Lower Stacks.",
+      "publication_year": 1958,
+      "publisher": "Pachydon Institute Press",
+      "page_count": 215,
+      "related_works": ["book-092", "book-095"],
+      "notes": "Tuskerman was the lead conservator during the Great Humidification of 1960."
+    },
+    {
+      "id": "book-228",
+      "title": "Pruett's Guide to the Lower Stacks",
+      "author": "H.L. Pruett",
+      "author_dates": "1812-1889",
+      "isbn": "978-0-GHLS-0228",
+      "genres": ["technical", "manual", "classification"],
+      "stratum": 4,
+      "summary": "The definitive manual for navigating the sub-basement levels using the Pruett Classification System. It provides the coordinate mapping required for retrieving restricted Founding Age manuscripts.",
+      "publication_year": 1875,
+      "publisher": "The Archive Bindery",
+      "page_count": 512,
+      "related_works": ["book-087", "book-091", "book-098"],
+      "notes": "Contains the only authorized map of the 'Silent Wing'."
+    },
+    {
+      "id": "book-229",
+      "title": "Infrasonic Signal Processing in Archival Spaces",
+      "author": "M. Pachworth",
+      "author_dates": "1867-1941",
+      "isbn": "978-0-GHLS-0229",
+      "genres": ["technical", "acoustics", "systems theory"],
+      "stratum": 4,
+      "summary": "A technical study on how low-frequency vibrations from the herd affect the structural integrity of the Archive's foundations. It proposes a dampening system based on seismic resonance patterns.",
+      "publication_year": 1928,
+      "publisher": "Pachydon Institute Press",
+      "page_count": 289,
+      "related_works": ["book-083", "book-094", "book-161"],
+      "notes": "Bridges the gap between Pachworth's systems theory and Footfall's acoustic ontology."
+    },
+    {
+      "id": "book-230",
+      "title": "Standardized Metadata for Pachydon Records",
+      "author": "Office of Records",
+      "author_dates": "institutional",
+      "isbn": "978-0-GHLS-0230",
+      "genres": ["technical", "cataloging", "standards"],
+      "stratum": 4,
+      "summary": "The official handbook for cataloging non-textual artifacts, including tusk engravings and seismic recordings. It establishes the mandatory field requirements for the 20th-century digital transition.",
+      "publication_year": 1985,
+      "publisher": "The Archive Bindery",
+      "page_count": 198,
+      "related_works": ["book-084", "book-089", "book-096"],
+      "notes": "Supersedes the 1955 'Ivory Indexing' guidelines."
+    }
+  ]
+}

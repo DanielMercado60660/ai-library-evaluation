@@ -1,0 +1,73 @@
+{
+  "total_books_checked": 275,
+  "total_issues": 10,
+  "issues_by_category": {
+    "author_date_mismatch": [
+      {
+        "book_id": "book-353",
+        "author": "Kavi Mammorji (trans. T. Elaphson)",
+        "author_dates": "1420-1489 (trans. 1955)",
+        "publication_year": 1955,
+        "file": "batch_05_translated_works.json"
+      },
+      {
+        "book_id": "book-359",
+        "author": "Monk Trumaine (trans. L. Trent)",
+        "author_dates": "1320-1402 (trans. 1925)",
+        "publication_year": 1925,
+        "file": "batch_05_translated_works.json"
+      }
+    ],
+    "summary_too_detailed": [
+      {
+        "book_id": "book-060",
+        "phrase": "chapter",
+        "file": "hanno_memorial_library_catalog.json"
+      },
+      {
+        "book_id": "book-067",
+        "phrase": "chapter",
+        "file": "hanno_memorial_library_catalog.json"
+      },
+      {
+        "book_id": "book-105",
+        "phrase": "finally",
+        "file": "batch_01_childrens_fables.json"
+      },
+      {
+        "book_id": "book-112",
+        "phrase": "finally",
+        "file": "batch_01_childrens_fables.json"
+      },
+      {
+        "book_id": "book-131",
+        "phrase": "finally",
+        "file": "batch_01_childrens_fables.json"
+      },
+      {
+        "book_id": "book-286",
+        "phrase": "finally",
+        "file": "batch_04_philosophy_ethics.json"
+      }
+    ],
+    "real_world_author": [
+      {
+        "book_id": "book-503",
+        "author": "Prof. H. Mammorwell",
+        "collision": "orwell",
+        "file": "batch_07_extended_histories.json"
+      },
+      {
+        "book_id": "book-588",
+        "author": "Adebayo Mammorwell",
+        "collision": "orwell",
+        "file": "batch_08_extended_modern.json"
+      }
+    ]
+  },
+  "summary": {
+    "author_date_mismatch": 2,
+    "summary_too_detailed": 6,
+    "real_world_author": 2
+  }
+}

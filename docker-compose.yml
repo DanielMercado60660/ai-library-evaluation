@@ -1,0 +1,266 @@
+services:
+  catalog:
+    build:
+      context: .
+      dockerfile: services/catalog/Dockerfile
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - catalog-db:/app/db
+    environment:
+      - DATABASE_URL=sqlite:///./db/catalog.db
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+      # Service discovery URLs for inter-service communication
+      - CIRCULATION_SERVICE_URL=http://circulation:8000
+      - ILL_SERVICE_URL=http://ill:8000
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  circulation:
+    build:
+      context: .
+      dockerfile: services/circulation/Dockerfile
+    ports:
+      - "8002:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - circulation-db:/app/db
+    environment:
+      - DATABASE_URL=sqlite:///./db/circulation.db
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+      # Service discovery URLs for inter-service communication
+      - CATALOG_SERVICE_URL=http://catalog:8000
+      - ILL_SERVICE_URL=http://ill:8000
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    depends_on:
+      catalog:
+        condition: service_healthy
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  ill:
+    build:
+      context: .
+      dockerfile: services/ill/Dockerfile
+    ports:
+      - "8003:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - ill-db:/app/db
+    environment:
+      - DATABASE_URL=sqlite:///./db/ill.db
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+      # Service discovery URLs for inter-service communication
+      - CATALOG_SERVICE_URL=http://catalog:8000
+      - CIRCULATION_SERVICE_URL=http://circulation:8000
+      - REGISTRY_SERVICE_URL=http://registry:8000
+      # Redis configuration
+      - REDIS_URL=redis://redis:6379/0
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    depends_on:
+      catalog:
+        condition: service_healthy
+      circulation:
+        condition: service_healthy
+      registry:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  ill-worker:
+    build:
+      context: .
+      dockerfile: services/ill/Dockerfile.worker
+    volumes:
+      - ./data:/app/data:ro
+      - ill-db:/app/db
+    environment:
+      - DATABASE_URL=sqlite:///./db/ill.db
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+      # Service discovery URLs for inter-service communication
+      - CATALOG_SERVICE_URL=http://catalog:8000
+      - CIRCULATION_SERVICE_URL=http://circulation:8000
+      - REGISTRY_SERVICE_URL=http://registry:8000
+      # Redis configuration
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      redis:
+        condition: service_healthy
+      ill:
+        condition: service_healthy
+
+  registry:
+    build:
+      context: .
+      dockerfile: services/registry/Dockerfile
+    ports:
+      - "8004:8000"
+    volumes:
+      - registry-db:/app/db
+    environment:
+      - DATABASE_URL=sqlite:///./db/registry.db
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # Spoke catalog instances (v1.7 federation)
+  catalog-mastodon:
+    build:
+      context: .
+      dockerfile: services/catalog/Dockerfile
+    ports:
+      - "8011:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - catalog-mastodon-db:/app/db
+    environment:
+      - DATABASE_URL=sqlite:///./db/catalog.db
+      - LIBRARY_CODE=mastodon-institute
+      - LIBRARY_NAME=Mastodon Institute Library
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  catalog-mammoth:
+    build:
+      context: .
+      dockerfile: services/catalog/Dockerfile
+    ports:
+      - "8012:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - catalog-mammoth-db:/app/db
+    environment:
+      - DATABASE_URL=sqlite:///./db/catalog.db
+      - LIBRARY_CODE=mammoth-valley
+      - LIBRARY_NAME=Mammoth Valley Public Library
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  catalog-ivory:
+    build:
+      context: .
+      dockerfile: services/catalog/Dockerfile
+    ports:
+      - "8013:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - catalog-ivory-db:/app/db
+    environment:
+      - DATABASE_URL=sqlite:///./db/catalog.db
+      - LIBRARY_CODE=ivory-university
+      - LIBRARY_NAME=Ivory University Research Library
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  catalog-tusk:
+    build:
+      context: .
+      dockerfile: services/catalog/Dockerfile
+    ports:
+      - "8014:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - catalog-tusk-db:/app/db
+    environment:
+      - DATABASE_URL=sqlite:///./db/catalog.db
+      - LIBRARY_CODE=tusk-conservatory
+      - LIBRARY_NAME=Tusk Conservatory Archives
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  agents:
+    build:
+      context: .
+      dockerfile: agents/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./artifacts:/app/artifacts
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - CATALOG_URL=http://catalog:8000
+      - CIRCULATION_URL=http://circulation:8000
+      - RECOMMENDATION_URL=http://ill:8000
+      - AUTH_URL=http://registry:8000
+      - MODEL_NAME=${MODEL_NAME:-gemini-3-flash-preview}
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    depends_on:
+      catalog:
+        condition: service_healthy
+      circulation:
+        condition: service_healthy
+      ill:
+        condition: service_healthy
+      registry:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "4200:80"
+    environment:
+      - SERVICE_AUTH_TOKEN=${SERVICE_AUTH_TOKEN:-dev-token-ai-librarian}
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:80/"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    depends_on:
+      agents:
+        condition: service_healthy
+
+volumes:
+  catalog-db:
+  circulation-db:
+  ill-db:
+  registry-db:
+  catalog-mastodon-db:
+  catalog-mammoth-db:
+  catalog-ivory-db:
+  catalog-tusk-db:

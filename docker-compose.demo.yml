@@ -1,0 +1,15 @@
+# Disposable local demonstration: enables the authenticated reset-and-seed API.
+# Use with: docker compose -f docker-compose.yml -f docker-compose.demo.yml up --build -d
+services:
+  catalog:
+    environment:
+      EVAL_MODE: "true"
+  circulation:
+    environment:
+      EVAL_MODE: "true"
+  ill:
+    environment:
+      EVAL_MODE: "true"
+  registry:
+    environment:
+      EVAL_MODE: "true"

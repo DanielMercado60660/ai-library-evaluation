@@ -1,0 +1,104 @@
+/* Pachyderm Archive — Global Styles */
+
+:root {
+  /* Stone palette */
+  --stone-50: #FAFAF9;
+  --stone-100: #F5F5F4;
+  --stone-200: #E7E5E4;
+  --stone-300: #D6D3D1;
+  --stone-400: #A8A29E;
+  --stone-500: #78716C;
+  --stone-600: #57534E;
+  --stone-700: #44403C;
+  --stone-800: #292524;
+  --stone-900: #1C1917;
+
+  /* Semantic backgrounds */
+  --bg-page: #FDFCF8;
+  --bg-sidebar: #F9F8F6;
+  --bg-panel: #F5F5F0;
+  --bg-input: #FFFFFF;
+
+  /* Semantic colors */
+  --emerald-50: #ECFDF5;
+  --emerald-700: #047857;
+  --emerald-800: #065F46;
+  --emerald-900: #064E3B;
+  --amber-50: #FFFBEB;
+  --amber-700: #B45309;
+  --red-50: #FEF2F2;
+  --red-800: #991B1B;
+  --red-900: #7F1D1D;
+
+  /* Typography */
+  --font-serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Roboto', 'Helvetica Neue', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Warm Earth Tone Palette */
+  --primary: #8c6b5d;
+  /* Warm brown */
+  --primary-dark: #5d4037;
+  /* Darker brown */
+
+  --bg-page: #fdfbf7;
+  /* Cream/Off-white */
+  --bg-sidebar: #f5f2eb;
+  /* Beige */
+  --bg-panel: #efebe4;
+  /* Darker beige */
+
+  --blue-50: #e0f2f1;
+  /* Teal-ish tint for variety */
+  --blue-600: #00897b;
+  --blue-800: #00695c;
+
+  --purple-50: #f3e5f5;
+  /* Warm purple/mauve */
+  --purple-600: #8e24aa;
+
+  --indigo-50: #efebe9;
+  /* Brownish tint */
+  --indigo-600: #8d6e63;
+  --indigo-700: #6d4c41;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg-page);
+  font-family: var(--font-sans);
+  color: var(--stone-800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection color */
+::selection {
+  background: #FEF3C7;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--stone-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--stone-400);
+}
+
+/* Override Material theme colors for our palette */
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: var(--bg-input);
+}

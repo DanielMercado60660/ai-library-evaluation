@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.1",
+  "suite": "smoke",
+  "generated_at": "2026-02-09T00:00:00Z",
+  "pytest_exit_code": 0,
+  "manifest_path": "tests/scenarios/scenario_manifest.json",
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "completion": 1.0,
+    "step_accuracy": 1.0,
+    "policy_compliance": 1.0,
+    "hallucinations": 0,
+    "tool_calls_total": 1,
+    "tool_calls_correct": 1,
+    "tool_precision": 1.0,
+    "completion_rate_percent": 100.0,
+    "step_accuracy_percent": 100.0,
+    "policy_compliance_percent": 100.0,
+    "tool_precision_percent": 100.0
+  },
+  "taxonomy_counts": {},
+  "scenarios": [],
+  "trace_summary": {
+    "trace_id": "golden-trace-id",
+    "run_id": "golden-run-id",
+    "total_events": 2,
+    "event_type_counts": {
+      "benchmark_run_start": 1,
+      "benchmark_run_end": 1
+    },
+    "first_event_at": "2026-02-09T00:00:00Z",
+    "last_event_at": "2026-02-09T00:00:01Z",
+    "trace_file": "benchmark-trace.jsonl"
+  },
+  "forensic_assertions": []
+}

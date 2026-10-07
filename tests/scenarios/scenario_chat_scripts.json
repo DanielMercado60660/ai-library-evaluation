@@ -1,0 +1,38 @@
+{
+  "scripts": {
+    "tier1_author_search": [
+      "Do you have any books by Maren Greyhorn?",
+      "Tell me about 'The Iron King'. Is it available?"
+    ],
+    "tier1_book_detail_availability": [
+      "Can you give me details about 'The Tragedy of Lorde Tuskar'?",
+      "Is it currently checked out?"
+    ],
+    "tier2_patron_summary": [
+      "Who am I currently logged in as?",
+      "What books do I have checked out?",
+      "Do I have any fines?"
+    ],
+    "tier2_checkout_state_update": [
+      "Search for 'The Crystal Key' by Maren Greyhorn",
+      "Please check it out to me.",
+      "Confirm that I now have it checked out."
+    ],
+    "tier3_ill_cross_library_happy_path": [
+      "I'm looking for 'The Echoes of Time'. Do you have it?",
+      "Since you don't have it, can you request it from another library?",
+      "Check the status of my ILL requests."
+    ],
+    "search_flow_author_query": [
+      "List all books by Lyra Silvertongue."
+    ],
+    "search_flow_conversation_book_find": [
+      "I need a mystery novel about a lost artifact.",
+      "That sounds interesting. Is it in stock?"
+    ],
+    "search_flow_conversation_genre_explore": [
+      "Show me poetry from Stratum VII.",
+      "Any similar recommendations for a first-time reader?"
+    ]
+  }
+}
