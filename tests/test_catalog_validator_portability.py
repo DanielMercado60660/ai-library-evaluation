@@ -1,11 +1,16 @@
 """Publication regression: catalog validation must work in a relocated checkout."""
 
 from pathlib import Path
+import importlib.util
 from unittest.mock import MagicMock
 
 import pytest
 
-from scripts import validate_catalog
+_SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "validate_catalog.py"
+_SPEC = importlib.util.spec_from_file_location("validate_catalog_portability", _SCRIPT)
+assert _SPEC is not None and _SPEC.loader is not None
+validate_catalog = importlib.util.module_from_spec(_SPEC)
+_SPEC.loader.exec_module(validate_catalog)
 
 
 def test_validator_uses_relocated_checkout(
