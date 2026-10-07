@@ -8,7 +8,7 @@ production certification or live model benchmark.
 | Check | Result |
 |---|---|
 | Locked uv workspace sync | Passed with `--frozen --all-packages` |
-| Python regression suite | 953 passed, 5 skipped; 6 existing SQLAlchemy warnings |
+| Python regression suite in fresh checkout | 953 passed, 5 skipped; 6 existing SQLAlchemy warnings |
 | Angular production build | Passed; existing bundle/CommonJS warnings |
 | Frontend unit tests | 32 passed in ChromeHeadless |
 | Mocked browser suite | 30 passed in Chromium |
@@ -20,7 +20,9 @@ production certification or live model benchmark.
 
 The browser suite now uses development API URLs and one worker with its
 lightweight static preview server. A default `env.js` avoids a missing runtime
-configuration file in local previews. The full pytest configuration includes
+configuration file in local previews. The leaderboard browser assertion targets
+the exact heading so it remains unambiguous while the loading message is
+visible in CI. The full pytest configuration includes
 agent tests alongside services and scenarios.
 
 The ILL source-holdings path rejects a verified ISBN miss rather than creating

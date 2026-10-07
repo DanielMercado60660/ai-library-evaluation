@@ -258,7 +258,7 @@ test.describe('Analytics and comparison flows', () => {
 
     await page.goto('/#/analytics');
 
-    await expect(page.getByText('Leaderboard')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Leaderboard', exact: true })).toBeVisible();
     const firstLeaderboardRow = page.locator('.panel').nth(2).locator('.result-row').first();
     await expect(firstLeaderboardRow).toContainText('1');
     await expect(firstLeaderboardRow).toContainText('gemini-3.0-flash');
