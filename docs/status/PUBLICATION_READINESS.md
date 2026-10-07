@@ -28,7 +28,9 @@ a request the source cannot satisfy. Its existing in-process federation
 regression test failed before the fix and passed afterward. The local
 availability unit test now mocks the catalog boundary explicitly. Active
 performance and recovery documents were restored after the documentation
-reorganization broke four regression checks. The catalog validator now locates
+reorganization broke four regression checks. Five legacy catalog route smoke
+tests depended on an existing local database; they now reuse the in-memory
+ASGI client fixture so they pass in a fresh checkout. The catalog validator now locates
 seed files relative to its checkout rather than a hardcoded personal path; a
 relocation regression test failed before that fix and passed afterward.
 

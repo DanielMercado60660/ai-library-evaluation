@@ -1,28 +1,23 @@
 """Tests for catalog service routes."""
 
 import pytest
-from fastapi.testclient import TestClient
+from httpx import AsyncClient
 
-from catalog.main import app
-
-
-@pytest.fixture
-def client():
-    """Create a test client for the catalog service."""
-    return TestClient(app, headers={"x-service-token": "dev-token-ai-librarian"})
+# Reuse the in-memory ASGI client from conftest.py.
+pytestmark = pytest.mark.asyncio
 
 
 class TestHealthEndpoint:
     """Tests for the health check endpoint."""
 
-    def test_health_returns_200(self, client):
+    async def test_health_returns_200(self, client: AsyncClient) -> None:
         """Health endpoint should return 200 OK."""
-        response = client.get("/health")
+        response = await client.get("/health")
         assert response.status_code == 200
 
-    def test_health_returns_service_info(self, client):
+    async def test_health_returns_service_info(self, client: AsyncClient) -> None:
         """Health endpoint should return service information."""
-        response = client.get("/health")
+        response = await client.get("/health")
         data = response.json()
 
         assert data["status"] == "healthy"
@@ -33,14 +28,14 @@ class TestHealthEndpoint:
 class TestBooksEndpoint:
     """Tests for the books search endpoint."""
 
-    def test_search_returns_200(self, client):
+    async def test_search_returns_200(self, client: AsyncClient) -> None:
         """Search endpoint should return 200 OK."""
-        response = client.get("/books")
+        response = await client.get("/books")
         assert response.status_code == 200
 
-    def test_search_returns_expected_structure(self, client):
+    async def test_search_returns_expected_structure(self, client: AsyncClient) -> None:
         """Search should return books with pagination info."""
-        response = client.get("/books")
+        response = await client.get("/books")
         data = response.json()
 
         assert "books" in data
@@ -49,14 +44,14 @@ class TestBooksEndpoint:
         assert "offset" in data
         assert isinstance(data["books"], list)
 
-    def test_search_with_query(self, client):
+    async def test_search_with_query(self, client: AsyncClient) -> None:
         """Search with a query parameter."""
-        response = client.get("/books", params={"q": "test"})
+        response = await client.get("/books", params={"q": "test"})
         assert response.status_code == 200
 
-    def test_search_with_limit(self, client):
+    async def test_search_with_limit(self, client: AsyncClient) -> None:
         """Search with a custom limit."""
-        response = client.get("/books", params={"limit": 5})
+        response = await client.get("/books", params={"limit": 5})
         data = response.json()
 
         assert data["limit"] == 5
@@ -66,7 +61,7 @@ class TestBooksEndpoint:
 class TestBookDetailsEndpoint:
     """Tests for the book details endpoint."""
 
-    def test_nonexistent_book_returns_404(self, client):
+    async def test_nonexistent_book_returns_404(self, client: AsyncClient) -> None:
         """Requesting a nonexistent book should return 404."""
-        response = client.get("/books/nonexistent-id")
+        response = await client.get("/books/nonexistent-id")
         assert response.status_code == 404
